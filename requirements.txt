@@ -1,0 +1,6 @@
+customtkinter
+selenium
+Pillow
+pytesseract
+chromedriver-autoinstaller
+cookies
