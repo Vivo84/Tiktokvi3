@@ -92,7 +92,7 @@ class App(ctk.CTk):
         self.version_label = ctk.CTkLabel(self, text="Version 1.2.0", fg_color="transparent")
         self.version_label.grid(row=5, column=1, padx=20, pady=(10, 0), sticky="se")
 
-        self.github_link = ctk.CTkLabel(self, text=" http://github.com/Vivo84/Tiktokvi3", fg_color="transparent", cursor=")
+        self.github_link = ctk.CTkLabel(self, text=" http://github.com/Vivo84/Tiktokvi3", fg_color="transparent", cursor="hand2"
         self.github_link.grid(row=6, column=1, padx=20, pady=(0, 10), sticky="se")
         self.github_link.bind("<Button-1>", lambda e: self.open_github())
 
