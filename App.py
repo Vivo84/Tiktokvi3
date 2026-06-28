@@ -40,8 +40,19 @@ class App(ctk.CTk):
         self.amount_entry = ctk.CTkEntry(self.sidebar_frame, width=180, font=custom_font)  # New entry
         self.amount_entry.grid(row=4, column=0, padx=20, pady=1)  # New entry grid
 
+        self.mode_label = ctk.CTkLabel(self.sidebar_frame, text="Mode:", font=custom_font, anchor="w")
+        self.mode_label.grid(row=5, column=0, padx=20, pady=1, sticky="w")
+        self.mode_menu = ctk.CTkOptionMenu(
+            self.sidebar_frame,
+            variable=self.mode_var,
+            values=["Views", "Hearts", "Followers", "Shares", "Favorites"],
+            font=custom_font,
+            width=180
+        )
+        self.mode_menu.grid(row=6, column=0, padx=20, pady=1)
+
         self.start_button = ctk.CTkButton(self.sidebar_frame, text="Setup", command=lambda: threading.Thread(target=self.setup_bot).start(), font=custom_font)
-        self.start_button.grid(row=6, column=0, padx=20, pady=20)  # Adjusted row to move the button lower
+        self.start_button.grid(row=7, column=0, padx=20, pady=20)  # Adjusted row to move the button lower
 
         # Create main frame with tab view for log and stats
         self.main_frame = ctk.CTkFrame(self, corner_radius=0)
@@ -92,13 +103,19 @@ class App(ctk.CTk):
         self.version_label = ctk.CTkLabel(self, text="Version 1.2.0", fg_color="transparent")
         self.version_label.grid(row=5, column=1, padx=20, pady=(10, 0), sticky="se")
 
-        self.github_link = ctk.CTkLabel(self, text=" http://github.com/Vivo84/Tiktokvi3", fg_color="transparent", cursor="hand2"
+        self.github_link = ctk.CTkLabel(
+            self,
+            text="http://github.com/Vivo84/Tiktokvi3",
+            fg_color="transparent",
+            cursor="hand2"
+        )
         self.github_link.grid(row=6, column=1, padx=20, pady=(0, 10), sticky="se")
         self.github_link.bind("<Button-1>", lambda e: self.open_github())
 
     def open_github(self):
         import webbrowser
-        webbrowser.open(https://github.com/Vivo84/Tiktokvi3
+        webbrowser.open("https://github.com/Vivo84/Tiktokvi3")
+
     def switch_theme(self):
         if self.theme_switch_var.get() == "dark":
             ctk.set_appearance_mode("dark")
@@ -171,3 +188,5 @@ class App(ctk.CTk):
 if __name__ == "__main__":
     app = App()
     app.mainloop()
+
+    
